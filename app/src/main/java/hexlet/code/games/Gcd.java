@@ -10,12 +10,12 @@ public class Gcd {
         return gcdByEuclidsAlgorithm(n2, n1 % n2);
     }
     public static String[][] main() {
-        int gameToolsLen = 3;
+        final int gameToolsLen = 3;
         String[] rules = new String[]{"Find the greatest common divisor of given numbers."};
         String[] questions = new String[gameToolsLen];
         String[] rightAnswers = new String[gameToolsLen];
         for (int i = 0; i < gameToolsLen; i += 1) {
-            int hundred = 100;
+            final int hundred = 100;
             int firstNumber = (int) Math.floor(Math.random() * hundred);
             int secondNumber = (int) Math.floor(Math.random() * hundred);
             questions[i] = Integer.toString(firstNumber) + " " + Integer.toString(secondNumber);

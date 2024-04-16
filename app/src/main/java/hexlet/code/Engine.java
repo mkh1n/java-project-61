@@ -14,7 +14,7 @@ public class Engine {
         System.out.println(rules);
 
         Scanner scan = new Scanner(System.in);
-        int roundMax = 3;
+        final int roundMax = 3;
         for (int i = 0; i < roundMax; i += 1) {
             var question = questions[i];
 

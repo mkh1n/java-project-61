@@ -6,14 +6,14 @@ public class Progression {
     @SuppressWarnings("checkstyle:<MagicNumber>")
 
     public static String[][] main() {
-        int gameToolsLen = 3;
+        final int gameToolsLen = 3;
         String[] rules = new String[]{"What number is missing in the progression?"};
         String[] questions = new String[gameToolsLen];
         String[] rightAnswers = new String[gameToolsLen];
         for (int i = 0; i < gameToolsLen; i += 1) {
-            int minLen = 5;
-            int minStep = 2;
-            int minStart = 20;
+            final int minLen = 5;
+            final int minStep = 2;
+            final int minStart = 20;
             int length = new Random().nextInt(minLen) + minLen;
             String[] progression = new String[length];
             int step = new Random().nextInt(minLen) + minStep;

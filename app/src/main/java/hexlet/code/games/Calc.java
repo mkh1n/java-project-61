@@ -6,7 +6,7 @@ public class Calc {
     @SuppressWarnings("checkstyle:<MagicNumber>")
 
     public static String[][] main() {
-        int gameToolsLen = 3;
+        final int gameToolsLen = 3;
         String[] operations = {"+", "-", "*"};
         String[] rules = new String[]{"What is the result of the expression?"};
         String[] questions = new String[gameToolsLen];
@@ -16,7 +16,7 @@ public class Calc {
 
             String operation = operations[randomIndex];
 
-            int hundred = 100;
+            final int hundred = 100;
             int firstOperand = (int) Math.floor(Math.random() * hundred);
             int secondOperand = (int) Math.floor(Math.random() * hundred);
             questions[i] = Integer.toString(firstOperand) + ' ' + operation + ' ' + Integer.toString(secondOperand);
