@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Calc {
+    @SuppressWarnings("checkstyle:<MagicNumber>")
+
     public static String[][] main() {
         String[] operations = {"+", "-", "*"};
         String[] rules = new String[]{"What is the result of the expression?"};
@@ -12,6 +14,7 @@ public class Calc {
             int randomIndex = new Random().nextInt(operations.length);
 
             String operation = operations[randomIndex];
+
             int firstOperand = (int) Math.floor(Math.random() * 100);
             int secondOperand = (int) Math.floor(Math.random() * 100);
             questions[i] = Integer.toString(firstOperand) + ' ' + operation + ' ' + Integer.toString(secondOperand);

@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.math.BigInteger;
 
 public class Prime {
+    @SuppressWarnings("checkstyle:<MagicNumber>")
+
     public static String[][] main() {
         String[] rules = new String[]{"Answer 'yes' if given number is prime. Otherwise answer 'no'."};
         String[] questions = new String[3];

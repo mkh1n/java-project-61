@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Progression {
+    @SuppressWarnings("checkstyle:<MagicNumber>")
+
     public static String[][] main() {
         String[] rules = new String[]{"What number is missing in the progression?"};
         String[] questions = new String[3];

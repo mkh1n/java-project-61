@@ -3,6 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    @SuppressWarnings("checkstyle:<MagicNumber>")
+
     public static void play(String[][] gameTools) {
         String name = Cli.greeting();
         int score = 0;

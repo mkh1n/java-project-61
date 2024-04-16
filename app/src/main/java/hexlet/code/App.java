@@ -1,8 +1,12 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-import java.util.Scanner;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
 
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

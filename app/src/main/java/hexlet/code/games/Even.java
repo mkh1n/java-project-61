@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
 public class Even {
+    @SuppressWarnings("checkstyle:<MagicNumber>")
+
     public static String[][] main() {
         String[] rules = new String[]{"Answer 'yes' if the number is even, otherwise answer 'no'."};
         String[] questions = new String[3];

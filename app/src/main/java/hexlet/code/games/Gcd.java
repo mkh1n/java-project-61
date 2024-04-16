@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
 public class Gcd {
+    @SuppressWarnings("checkstyle:<MagicNumber>")
+
     public static int gcdByEuclidsAlgorithm(int n1, int n2) {
         if (n2 == 0) {
             return n1;
