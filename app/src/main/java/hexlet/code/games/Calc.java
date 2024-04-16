@@ -6,17 +6,19 @@ public class Calc {
     @SuppressWarnings("checkstyle:<MagicNumber>")
 
     public static String[][] main() {
+        int gameToolsLen = 3;
         String[] operations = {"+", "-", "*"};
         String[] rules = new String[]{"What is the result of the expression?"};
-        String[] questions = new String[3];
-        String[] rightAnswers = new String[3];
-        for (int i = 0; i < 3; i += 1) {
+        String[] questions = new String[gameToolsLen];
+        String[] rightAnswers = new String[gameToolsLen];
+        for (int i = 0; i < gameToolsLen; i += 1) {
             int randomIndex = new Random().nextInt(operations.length);
 
             String operation = operations[randomIndex];
 
-            int firstOperand = (int) Math.floor(Math.random() * 100);
-            int secondOperand = (int) Math.floor(Math.random() * 100);
+            int hundred = 100;
+            int firstOperand = (int) Math.floor(Math.random() * hundred);
+            int secondOperand = (int) Math.floor(Math.random() * hundred);
             questions[i] = Integer.toString(firstOperand) + ' ' + operation + ' ' + Integer.toString(secondOperand);
             switch (operation) {
                 case ("*"):

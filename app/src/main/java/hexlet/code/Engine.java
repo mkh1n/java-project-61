@@ -3,7 +3,6 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    @SuppressWarnings("checkstyle:<MagicNumber>")
 
     public static void play(String[][] gameTools) {
         String name = Cli.greeting();
@@ -15,8 +14,8 @@ public class Engine {
         System.out.println(rules);
 
         Scanner scan = new Scanner(System.in);
-
-        for (int i = 0; i < 3; i += 1) {
+        int roundMax = 3;
+        for (int i = 0; i < roundMax; i += 1) {
             var question = questions[i];
 
             System.out.printf("Question: %s\n", question);
@@ -35,7 +34,7 @@ public class Engine {
                 System.out.printf("Let's try again, %s!", name);
                 break;
             }
-            if (score == 3) {
+            if (score == roundMax) {
                 System.out.printf("Congratulations, %s!", name);
             }
         }
