@@ -31,11 +31,11 @@ public class Engine {
                 score += 1;
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", answer, rightAnswer);
-                System.out.printf("Let's try again, %s!", name);
+                System.out.printf("Let's try again, %s!\n", name);
                 break;
             }
             if (score == roundMax) {
-                System.out.printf("Congratulations, %s!", name);
+                System.out.printf("Congratulations, %s!\n", name);
             }
         }
     }
