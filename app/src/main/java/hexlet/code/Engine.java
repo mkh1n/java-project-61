@@ -18,10 +18,10 @@ public class Engine {
             var question = questions[i];
 
             System.out.printf("Question: %s\n",question );
+            System.out.print("Your answer: ");
 
             var answer = scan.nextLine();
 
-            System.out.printf("Your answer: %s\n",answer );
 
             var rightAnswer = rightAnswers[i];
 

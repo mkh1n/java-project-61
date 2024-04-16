@@ -19,9 +19,12 @@ public class App {
         System.out.println("0 - Exit");
 
         Scanner scan = new Scanner(System.in);
+
+        System.out.print("Your choice: ");
+
         Integer gameNumber = scan.nextInt();
 
-        System.out.printf("Your choice: %d\n\n", gameNumber);
+        System.out.println("");
 
         switch (gameNumber){
             case (0):
@@ -34,12 +37,16 @@ public class App {
                 break;
             case (3):
                 Engine.play(Calc.main());
+                break;
             case (4):
                 Engine.play(Gcd.main());
+                break;
             case (5):
                 Engine.play(Progression.main());
+                break;
             case (6):
                 Engine.play(Prime.main());
+                break;
         }
     }
 }
