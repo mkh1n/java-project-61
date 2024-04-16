@@ -14,10 +14,10 @@ public class Engine {
 
         Scanner scan = new Scanner(System.in);
 
-        for (int i = 0; i < 3; i += 1){
+        for (int i = 0; i < 3; i += 1) {
             var question = questions[i];
 
-            System.out.printf("Question: %s\n",question );
+            System.out.printf("Question: %s\n", question);
             System.out.print("Your answer: ");
 
             var answer = scan.nextLine();
@@ -25,7 +25,7 @@ public class Engine {
 
             var rightAnswer = rightAnswers[i];
 
-            if (answer.equals(rightAnswers[i])){
+            if (answer.equals(rightAnswers[i])) {
                 System.out.println("Correct!");
                 score += 1;
             } else {
@@ -33,7 +33,7 @@ public class Engine {
                 System.out.printf("Let's try again, %s!", name);
                 break;
             }
-            if(score == 3){
+            if (score == 3) {
                 System.out.printf("Congratulations, %s!", name);
             }
         }

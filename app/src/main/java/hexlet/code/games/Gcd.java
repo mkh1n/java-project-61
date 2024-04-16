@@ -7,7 +7,7 @@ public class Gcd {
         }
         return gcdByEuclidsAlgorithm(n2, n1 % n2);
     }
-    public static String[][] main(){
+    public static String[][] main() {
         String[] rules = new String[]{"Find the greatest common divisor of given numbers."};
         String[] questions = new String[3];
         String[] rightAnswers = new String[3];

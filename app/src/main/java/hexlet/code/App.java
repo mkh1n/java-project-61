@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.games.*;
-
 import java.util.Scanner;
 
 
@@ -22,30 +21,30 @@ public class App {
 
         System.out.print("Your choice: ");
 
-        Integer gameNumber = scan.nextInt();
+        var gameNumber = scan.nextLine();
 
         System.out.println("");
 
-        switch (gameNumber){
-            case (0):
-                break;
-            case (1):
+        switch (gameNumber) {
+            case ("1"):
                 Cli.greeting();
                 break;
-            case (2):
+            case ("2"):
                 Engine.play(Even.main());
                 break;
-            case (3):
+            case ("3"):
                 Engine.play(Calc.main());
                 break;
-            case (4):
+            case ("4"):
                 Engine.play(Gcd.main());
                 break;
-            case (5):
+            case ("5"):
                 Engine.play(Progression.main());
                 break;
-            case (6):
+            case ("6"):
                 Engine.play(Prime.main());
+                break;
+            default:
                 break;
         }
     }

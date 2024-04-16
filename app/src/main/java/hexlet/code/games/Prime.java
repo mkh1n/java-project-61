@@ -3,7 +3,7 @@ package hexlet.code.games;
 import java.math.BigInteger;
 
 public class Prime {
-    public static String[][] main(){
+    public static String[][] main() {
         String[] rules = new String[]{"Answer 'yes' if given number is prime. Otherwise answer 'no'."};
         String[] questions = new String[3];
         String[] rightAnswers = new String[3];
