@@ -5,14 +5,13 @@ import hexlet.code.Game;
 import java.util.Random;
 
 import hexlet.code.Rand;
-import hexlet.code.Rand.*;
-public class Calc implements Game {
+public final class Calc implements Game {
     public static final String GAME_NAME = "Calc";
     public static final String GAME_DESCRIPTION = "What is the result of the expression?";
-    public static final String[] OPERATIONS = {"+", "-", "*"};
-    public static int firstOperand;
-    public static int secondOperand;
-    public static String currentOperation;
+    private static final String[] OPERATIONS = {"+", "-", "*"};
+    private static int firstOperand;
+    private static int secondOperand;
+    private static String currentOperation;
 
     public String getGameName() {
         return GAME_NAME;

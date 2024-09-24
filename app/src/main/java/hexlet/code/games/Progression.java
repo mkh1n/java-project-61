@@ -5,17 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Progression implements Game {
+public final class Progression implements Game {
     public static final String GAME_NAME = "Progression";
     public static final String GAME_DESCRIPTION = "What number is missing in the progression?";
 
     public String getGameName() {
         return GAME_NAME;
     }
-
-    private final int MIN_LEN = 5;
-    private final int MIN_STEP = 2;
-    private final int MIN_START = 20;
 
     private int hiddenIndex;
     private List<String> progression;
@@ -39,9 +35,12 @@ public class Progression implements Game {
     }
 
     public String getQuestion() {
-        int length = new Random().nextInt(MIN_LEN) + MIN_LEN;
-        step = new Random().nextInt(MIN_LEN) + MIN_STEP;
-        start = new Random().nextInt(MIN_START) + MIN_STEP;
+        int minLen = 5;
+        int length = new Random().nextInt(minLen) + minLen;
+        int minStep = 2;
+        step = new Random().nextInt(minLen) + minStep;
+        int minStart = 20;
+        start = new Random().nextInt(minStart) + minStep;
         hiddenIndex = new Random().nextInt(length);
 
         progression = new ArrayList<>();

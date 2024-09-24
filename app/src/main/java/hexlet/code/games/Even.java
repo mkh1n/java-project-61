@@ -5,7 +5,7 @@ import hexlet.code.Rand;
 
 import java.util.Random;
 
-public class Even implements Game {
+public final class Even implements Game {
     public static final String GAME_NAME = "Even";
     public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public String getGameName() {

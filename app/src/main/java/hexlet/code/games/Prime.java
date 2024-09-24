@@ -3,13 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Rand;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     public static final String GAME_NAME = "Prime";
     public static final String GAME_DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public String getGameName() {
         return GAME_NAME;
     }
-    public static int number;
+    private static int number;
 
     public static boolean isPrime(Integer number) {
         if (number < 2) {
