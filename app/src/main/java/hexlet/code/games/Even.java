@@ -17,7 +17,7 @@ public class Even implements Game {
     }
     public String getQuestion() {
         this.number = Rand.getRandomNumber();
-        return "Is " + this.number + " even? yes/no";
+        return "Is " + this.number;
     }
 
     public String getAnswer() {
