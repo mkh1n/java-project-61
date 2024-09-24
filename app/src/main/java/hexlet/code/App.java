@@ -6,12 +6,28 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Prime;
 
+import java.util.Map;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import static java.util.Map.entry;
+
 public class App {
+    private static final Map<String, Game> GAMES = Map.ofEntries(
+            entry("2", new Even()),
+            entry("3", new Calc()),
+            entry("4", new Gcd()),
+            entry("5", new Progression()),
+            entry("6", new Prime())
+    );
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final Engine ENGINE = new Engine();
     public static void main(String[] args) {
+        displayMenu();
+        String playerChoice = getPlayerChoice();
+        handlePlayerChoice(playerChoice);
+    }
+
+    private static void displayMenu() {
         System.out.println("Please enter the game number and press Enter!");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -20,35 +36,30 @@ public class App {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
+    }
 
-        Scanner scan = new Scanner(System.in);
-
+    private static String getPlayerChoice() {
         System.out.print("Your choice: ");
+        return SCANNER.nextLine();
+    }
 
-        var gameNumber = scan.nextLine();
-
-        System.out.println("");
-
-        switch (gameNumber) {
-            case ("1"):
+    private static void handlePlayerChoice(String playerChoice) {
+        switch (playerChoice) {
+            case "1":
                 Cli.greeting();
                 break;
-            case ("2"):
-                Engine.play(Even.main());
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+                ENGINE.play(GAMES.get(playerChoice));
                 break;
-            case ("3"):
-                Engine.play(Calc.main());
-                break;
-            case ("4"):
-                Engine.play(Gcd.main());
-                break;
-            case ("5"):
-                Engine.play(Progression.main());
-                break;
-            case ("6"):
-                Engine.play(Prime.main());
+            case "0":
+                System.out.println("Goodbye!");
                 break;
             default:
+                System.out.println("Invalid choice. Please try again.");
                 break;
         }
     }

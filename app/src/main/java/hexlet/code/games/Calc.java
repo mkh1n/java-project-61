@@ -1,39 +1,44 @@
 package hexlet.code.games;
 
+import hexlet.code.Game;
+
 import java.util.Random;
 
-public class Calc {
-    @SuppressWarnings("checkstyle:<MagicNumber>")
+import hexlet.code.Rand;
+import hexlet.code.Rand.*;
+public class Calc implements Game {
+    public static final String GAME_NAME = "Calc";
+    public static final String GAME_DESCRIPTION = "What is the result of the expression?";
+    public static final String[] OPERATIONS = {"+", "-", "*"};
+    public static int firstOperand;
+    public static int secondOperand;
+    public static String currentOperation;
 
-    public static String[][] main() {
-        final int gameToolsLen = 3;
-        String[] operations = {"+", "-", "*"};
-        String[] rules = new String[]{"What is the result of the expression?"};
-        String[] questions = new String[gameToolsLen];
-        String[] rightAnswers = new String[gameToolsLen];
-        for (int i = 0; i < gameToolsLen; i += 1) {
-            int randomIndex = new Random().nextInt(operations.length);
-
-            String operation = operations[randomIndex];
-
-            final int hundred = 100;
-            int firstOperand = (int) Math.floor(Math.random() * hundred);
-            int secondOperand = (int) Math.floor(Math.random() * hundred);
-            questions[i] = Integer.toString(firstOperand) + ' ' + operation + ' ' + Integer.toString(secondOperand);
-            switch (operation) {
-                case ("*"):
-                    rightAnswers[i] = Integer.toString(firstOperand * secondOperand);
-                    break;
-                case ("+"):
-                    rightAnswers[i] = Integer.toString(firstOperand + secondOperand);
-                    break;
-                default:
-                    rightAnswers[i] = Integer.toString(firstOperand - secondOperand);
-                    break;
-            }
-
-        }
-        return new String[][]{rules, questions, rightAnswers};
+    public String getGameName() {
+        return GAME_NAME;
     }
 
+    public String getDescription() {
+        return GAME_DESCRIPTION;
+    }
+
+    public String getQuestion() {
+        int randomIndex = new Random().nextInt(OPERATIONS.length);
+        currentOperation = OPERATIONS[randomIndex];
+        firstOperand = Rand.getRandomNumber();
+        secondOperand = Rand.getRandomNumber();
+        return Integer.toString(firstOperand) + ' ' + currentOperation + ' ' + Integer.toString(secondOperand);
+    }
+
+    public String getAnswer() {
+        switch (currentOperation) {
+            case ("*"):
+                return Integer.toString(firstOperand * secondOperand);
+            case ("+"):
+                return Integer.toString(firstOperand + secondOperand);
+            default:
+                return Integer.toString(firstOperand - secondOperand);
+        }
+    }
 }
+

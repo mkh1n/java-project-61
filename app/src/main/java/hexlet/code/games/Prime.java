@@ -1,7 +1,15 @@
 package hexlet.code.games;
 
-public class Prime {
-    // CHECKSTYLE DISABLE MagicNumber
+import hexlet.code.Game;
+import hexlet.code.Rand;
+
+public class Prime implements Game {
+    public static final String GAME_NAME = "Prime";
+    public static final String GAME_DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public String getGameName() {
+        return GAME_NAME;
+    }
+    public static int number;
 
     public static boolean isPrime(Integer number) {
         if (number < 2) {
@@ -14,18 +22,22 @@ public class Prime {
         }
         return true;
     }
-    public static String[][] main() {
-        final int gameToolsLen = 3;
-        String[] rules = new String[]{"Answer 'yes' if given number is prime. Otherwise answer 'no'."};
-        String[] questions = new String[gameToolsLen];
-        String[] rightAnswers = new String[gameToolsLen];
-        for (int i = 0; i < gameToolsLen; i += 1) {
-            final int hundred = 100;
-            var randomNumber = (int) Math.floor(Math.random() * hundred);
-            questions[i] = Integer.toString(randomNumber);
-            rightAnswers[i] = isPrime(randomNumber) ? "yes" : "no";
+    public String getDescription() {
+        return GAME_DESCRIPTION;
+    }
+    public static int gcdByEuclidsAlgorithm(int n1, int n2) {
+        if (n2 == 0) {
+            return n1;
         }
-        return new String[][]{rules, questions, rightAnswers};
+        return gcdByEuclidsAlgorithm(n2, n1 % n2);
+    }
+    public String getQuestion() {
+        number = Rand.getRandomNumber();
+        return Integer.toString(number);
     }
 
+    public String getAnswer() {
+        return isPrime(number) ? "yes" : "no";
+    }
 }
+

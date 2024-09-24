@@ -1,20 +1,29 @@
 package hexlet.code.games;
 
-public class Even {
-    @SuppressWarnings("checkstyle:<MagicNumber>")
+import hexlet.code.Game;
+import hexlet.code.Rand;
 
-    public static String[][] main() {
-        final int gameToolsLen = 3;
-        String[] rules = new String[]{"Answer 'yes' if the number is even, otherwise answer 'no'."};
-        String[] questions = new String[gameToolsLen];
-        String[] rightAnswers = new String[gameToolsLen];
-        for (int i = 0; i < gameToolsLen; i += 1) {
-            final int hundred = 100;
-            var randomNumber = (int) Math.floor(Math.random() * hundred);
-            questions[i] = Integer.toString(randomNumber);
-            rightAnswers[i] = randomNumber % 2 == 0 ? "yes" : "no";
-        }
-        return new String[][]{rules, questions, rightAnswers};
+import java.util.Random;
+
+public class Even implements Game {
+    public static final String GAME_NAME = "Even";
+    public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'";
+    public String getGameName() {
+        return GAME_NAME;
+    }
+    private int number;
+    public String getDescription() {
+        return GAME_DESCRIPTION;
+    }
+    public String getQuestion() {
+        this.number = Rand.getRandomNumber();
+        return "Is " + this.number + " even? yes/no";
     }
 
+    public String getAnswer() {
+        if (this.number % 2 == 0) {
+            return  "yes";
+        }
+        return "no";
+    }
 }

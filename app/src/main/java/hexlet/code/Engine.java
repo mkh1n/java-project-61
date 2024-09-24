@@ -3,40 +3,48 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    private static final int ROUND_MAX = 3;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void play(String[][] gameTools) {
-        String name = Cli.greeting();
-        int score = 0;
-        String rules = gameTools[0][0];
-        String[] questions = gameTools[1];
-        String[] rightAnswers = gameTools[2];
+    private String name;
+    private int score;
+    private String rules;
 
-        System.out.println(rules);
-
-        Scanner scan = new Scanner(System.in);
-        final int roundMax = 3;
-        for (int i = 0; i < roundMax; i += 1) {
-            var question = questions[i];
-
-            System.out.printf("Question: %s\n", question);
-            System.out.print("Your answer: ");
-
-            var answer = scan.nextLine();
-
-
-            var rightAnswer = rightAnswers[i];
-
-            if (answer.equals(rightAnswers[i])) {
-                System.out.println("Correct!");
-                score += 1;
-            } else {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", answer, rightAnswer);
-                System.out.printf("Let's try again, %s!\n", name);
+    public void play(Game game) {
+        initializeGame(game);
+        for (int i = 0; i < ROUND_MAX; i++) {
+            if (!playRound(game)) {
                 break;
             }
-            if (score == roundMax) {
-                System.out.printf("Congratulations, %s!\n", name);
-            }
+        }
+        if (score == ROUND_MAX) {
+            System.out.printf("Congratulations, %s!\n", name);
+        }
+    }
+
+    private void initializeGame(Game game) {
+        name = Cli.greeting();
+        score = 0;
+        rules = game.getDescription();
+        System.out.println(rules);
+    }
+
+    private boolean playRound(Game game) {
+        String question = game.getQuestion();
+        System.out.printf("Question: %s\n", question);
+        System.out.print("Your answer: ");
+        String answer = SCANNER.nextLine();
+        System.out.println(answer);
+        String rightAnswer = game.getAnswer();
+
+        if (answer.equals(rightAnswer)) {
+            System.out.println("Correct!");
+            score++;
+            return true;
+        } else {
+            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", answer, rightAnswer);
+            System.out.printf("Let's try again, %s!\n", name);
+            return false;
         }
     }
 }

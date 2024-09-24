@@ -1,27 +1,32 @@
 package hexlet.code.games;
 
-public class Gcd {
-    @SuppressWarnings("checkstyle:<MagicNumber>")
+import hexlet.code.Game;
+import hexlet.code.Rand;
 
+public class Gcd implements Game {
+    public static final String GAME_NAME = "GCD";
+    public static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
+    public String getGameName() {
+        return GAME_NAME;
+    }
+    public static int firstNumber;
+    public static int secondNumber;
+    public String getDescription() {
+        return GAME_DESCRIPTION;
+    }
     public static int gcdByEuclidsAlgorithm(int n1, int n2) {
         if (n2 == 0) {
             return n1;
         }
         return gcdByEuclidsAlgorithm(n2, n1 % n2);
     }
-    public static String[][] main() {
-        final int gameToolsLen = 3;
-        String[] rules = new String[]{"Find the greatest common divisor of given numbers."};
-        String[] questions = new String[gameToolsLen];
-        String[] rightAnswers = new String[gameToolsLen];
-        for (int i = 0; i < gameToolsLen; i += 1) {
-            final int hundred = 100;
-            int firstNumber = (int) Math.floor(Math.random() * hundred);
-            int secondNumber = (int) Math.floor(Math.random() * hundred);
-            questions[i] = Integer.toString(firstNumber) + " " + Integer.toString(secondNumber);
-            rightAnswers[i] = Integer.toString(gcdByEuclidsAlgorithm(firstNumber, secondNumber));
-        }
-        return new String[][]{rules, questions, rightAnswers};
+    public String getQuestion() {
+        firstNumber = Rand.getRandomNumber();
+        secondNumber = Rand.getRandomNumber();
+        return  Integer.toString(firstNumber) + " " + Integer.toString(secondNumber);
     }
 
+    public String getAnswer() {
+        return Integer.toString(gcdByEuclidsAlgorithm(firstNumber, secondNumber));
+    }
 }
