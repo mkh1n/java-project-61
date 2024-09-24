@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Even implements Game {
     public static final String GAME_NAME = "Even";
-    public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'";
+    public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public String getGameName() {
         return GAME_NAME;
     }
