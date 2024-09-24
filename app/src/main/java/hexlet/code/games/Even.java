@@ -21,9 +21,6 @@ public class Even implements Game {
     }
 
     public String getAnswer() {
-        if (this.number % 2 == 0) {
-            return  "yes";
-        }
-        return "no";
+        return this.number % 2 == 0 ? "yes" : "no";
     }
 }
