@@ -13,8 +13,12 @@ public final class Progression implements Game {
         return GAME_NAME;
     }
 
+    private static final int MIN_LEN = 5;
+    private static final int MIN_STEP = 2;
+    private static final int MIN_START = 20;
+
     private int hiddenIndex;
-    private List<String> progression;
+    private static List<String> progression;
     private int start;
     private int step;
 
@@ -35,12 +39,9 @@ public final class Progression implements Game {
     }
 
     public String getQuestion() {
-        int minLen = 5;
-        int length = new Random().nextInt(minLen) + minLen;
-        int minStep = 2;
-        step = new Random().nextInt(minLen) + minStep;
-        int minStart = 20;
-        start = new Random().nextInt(minStart) + minStep;
+        int length = new Random().nextInt(MIN_LEN) + MIN_LEN;
+        step = new Random().nextInt(MIN_LEN) + MIN_STEP;
+        start = new Random().nextInt(MIN_START) + MIN_STEP;
         hiddenIndex = new Random().nextInt(length);
 
         progression = new ArrayList<>();

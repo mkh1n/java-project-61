@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import hexlet.code.Rand;
 
-import java.util.Random;
-
 public final class Even implements Game {
     public static final String GAME_NAME = "Even";
     public static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";

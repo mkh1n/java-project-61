@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     private static final int ROUND_MAX = 3;
     private static final Scanner SCANNER = new Scanner(System.in);
 
