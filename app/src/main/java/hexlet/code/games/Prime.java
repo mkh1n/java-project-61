@@ -11,12 +11,12 @@ public final class Prime implements Game {
     }
     private static int number;
 
-    public static boolean isPrime(Integer number) {
-        if (number < 2) {
+    public static boolean isPrime(Integer num) {
+        if (num < 2) {
             return false;
         }
-        for (int i = 2; i < number / 2; i++) {
-            if (number % i == 0) {
+        for (int i = 2; i < num / 2; i++) {
+            if (num % i == 0) {
                 return false;
             }
         }
