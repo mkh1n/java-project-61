@@ -17,7 +17,7 @@ public class Even implements Game {
     }
     public String getQuestion() {
         this.number = Rand.getRandomNumber();
-        return "Is " + this.number;
+        return Integer.toString(this.number);
     }
 
     public String getAnswer() {
